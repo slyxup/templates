@@ -1,0 +1,134 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "Jest v29 testing framework with TypeScript support",
+  "category": "testing",
+  
+  "frameworks": ["react", "next", "node", "express", "nestjs", "*"],
+  "requiresTypescript": false,
+  "conflictsWith": ["vitest"],
+  "requiresFeatures": [],
+  
+  "creates": [
+    "jest.config.js"
+  ],
+  
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  },
+  
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "@testing-library/react": "^14.2.0",
+        "@testing-library/jest-dom": "^6.4.0",
+        "@testing-library/user-event": "^14.5.0",
+        "jest-environment-jsdom": "^29.7.0"
+      },
+      "files": [
+        {
+          "source": "files/jest.config.react.js",
+          "destination": "jest.config.js",
+          "overwrite": false
+        },
+        {
+          "source": "files/jest.setup.react.ts",
+          "destination": "src/test/jest.setup.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/example.react.test.tsx",
+          "destination": "src/__tests__/example.test.tsx",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "devDependencies": {
+        "@testing-library/react": "^14.2.0",
+        "@testing-library/jest-dom": "^6.4.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "next-router-mock": "^0.9.12"
+      },
+      "files": [
+        {
+          "source": "files/jest.config.next.js",
+          "destination": "jest.config.js",
+          "overwrite": false
+        },
+        {
+          "source": "files/jest.setup.next.ts",
+          "destination": "src/test/jest.setup.ts",
+          "overwrite": false
+        }
+      ],
+      "scripts": {
+        "test": "jest --passWithNoTests"
+      }
+    },
+    "node": {
+      "files": [
+        {
+          "source": "files/jest.config.node.js",
+          "destination": "jest.config.js",
+          "overwrite": false
+        },
+        {
+          "source": "files/example.node.test.ts",
+          "destination": "src/__tests__/example.test.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "devDependencies": {
+        "supertest": "^6.3.4",
+        "@types/supertest": "^6.0.2"
+      },
+      "files": [
+        {
+          "source": "files/jest.config.express.js",
+          "destination": "jest.config.js",
+          "overwrite": false
+        },
+        {
+          "source": "files/example.express.test.ts",
+          "destination": "src/__tests__/api.test.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "nestjs": {
+      "devDependencies": {
+        "@nestjs/testing": "^10.3.0"
+      },
+      "files": [
+        {
+          "source": "files/jest.config.nestjs.js",
+          "destination": "jest.config.js",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Jest has been configured for your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npm run test' to run all tests",
+      "Run 'npm run test:watch' for watch mode",
+      "Run 'npm run test:coverage' for coverage report",
+      "Create test files with .test.ts or .spec.ts suffix",
+      "Learn more: https://jestjs.io"
+    ]
+  }
+}

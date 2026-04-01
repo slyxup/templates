@@ -1,0 +1,23 @@
+{
+  "name": "i18n",
+  "version": "1.0.0",
+  "description": "i18n integration",
+  "category": "general",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "vue",
+    "next",
+    "nuxt"
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "i18n has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

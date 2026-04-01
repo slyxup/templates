@@ -1,0 +1,102 @@
+{
+  "name": "lint-staged",
+  "version": "1.0.0",
+  "description": "lint-staged v15 run linters on staged git files",
+  "category": "tooling",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": ["husky"],
+  
+  "creates": [
+    ".lintstagedrc"
+  ],
+  
+  "devDependencies": {
+    "lint-staged": "^15.2.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/lintstagedrc.react.json",
+          "destination": ".lintstagedrc",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": ".husky/pre-commit",
+          "action": "append",
+          "content": "\nnpx lint-staged",
+          "marker": "lint-staged"
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/lintstagedrc.next.json",
+          "destination": ".lintstagedrc",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": ".husky/pre-commit",
+          "action": "append",
+          "content": "\nnpx lint-staged",
+          "marker": "lint-staged"
+        }
+      ]
+    },
+    "vue": {
+      "files": [
+        {
+          "source": "files/lintstagedrc.vue.json",
+          "destination": ".lintstagedrc",
+          "overwrite": false
+        }
+      ]
+    },
+    "default": {
+      "files": [
+        {
+          "source": "files/lintstagedrc.json",
+          "destination": ".lintstagedrc",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": ".husky/pre-commit",
+          "action": "append",
+          "content": "\nnpx lint-staged",
+          "marker": "lint-staged"
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "lint-staged has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "lint-staged will run on git commit via husky",
+      "Configure patterns in .lintstagedrc",
+      "Learn more: https://github.com/lint-staged/lint-staged"
+    ]
+  },
+  
+  "validation": {
+    "preInstall": [
+      {
+        "type": "file-exists",
+        "target": ".husky",
+        "message": "Husky must be installed first. Run 'slyxup add husky'"
+      }
+    ]
+  }
+}

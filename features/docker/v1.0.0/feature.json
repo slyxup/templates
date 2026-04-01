@@ -1,0 +1,220 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "Docker + Docker Compose setup for containerization",
+  "category": "devops",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "creates": [
+    "Dockerfile",
+    "docker-compose.yml",
+    ".dockerignore"
+  ],
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/Dockerfile.react",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.frontend.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        },
+        {
+          "source": "files/nginx.conf",
+          "destination": "nginx.conf",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/Dockerfile.next",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.next.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "files": [
+        {
+          "source": "files/Dockerfile.vue",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.frontend.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        },
+        {
+          "source": "files/nginx.conf",
+          "destination": "nginx.conf",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "files": [
+        {
+          "source": "files/Dockerfile.nuxt",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.nuxt.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "files": [
+        {
+          "source": "files/Dockerfile.node",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.backend.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        }
+      ]
+    },
+    "fastify": {
+      "files": [
+        {
+          "source": "files/Dockerfile.node",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.backend.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        }
+      ]
+    },
+    "nestjs": {
+      "files": [
+        {
+          "source": "files/Dockerfile.nestjs",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.nestjs.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        }
+      ]
+    },
+    "hono": {
+      "files": [
+        {
+          "source": "files/Dockerfile.hono",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.backend.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore",
+          "destination": ".dockerignore",
+          "overwrite": false
+        }
+      ]
+    },
+    "elysia": {
+      "files": [
+        {
+          "source": "files/Dockerfile.bun",
+          "destination": "Dockerfile",
+          "overwrite": false
+        },
+        {
+          "source": "files/docker-compose.bun.yml",
+          "destination": "docker-compose.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/.dockerignore.bun",
+          "destination": ".dockerignore",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "scripts": {
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  
+  "postInstall": {
+    "message": "Docker configuration has been added!",
+    "instructions": [
+      "Review and customize the Dockerfile for your needs",
+      "Run 'npm run docker:build' to build the image",
+      "Run 'npm run docker:up' to start containers",
+      "Run 'npm run docker:logs' to view logs",
+      "Customize docker-compose.yml for additional services",
+      "Learn more: https://docs.docker.com"
+    ]
+  }
+}

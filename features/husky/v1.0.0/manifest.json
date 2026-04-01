@@ -1,0 +1,24 @@
+{
+  "name": "husky",
+  "version": "1.0.0",
+  "description": "Husky v9 Git hooks for pre-commit and commit-msg",
+  "category": "tooling",
+  "status": "stable",
+  "frameworks": [
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": {
+    "husky": "^9.0.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {
+    "prepare": "husky"
+  },
+  "instructions": "husky has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "name": "prisma",
+  "version": "1.0.0",
+  "description": "Prisma ORM v5 with TypeScript type-safe database access",
+  "category": "database",
+  
+  "frameworks": ["next", "express", "fastify", "node", "nuxt", "remix", "sveltekit", "astro", "*"],
+  "requiresTypescript": true,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "creates": [
+    "prisma/schema.prisma"
+  ],
+  
+  "devDependencies": {
+    "prisma": "^5.10.0"
+  },
+  
+  "dependencies": {
+    "@prisma/client": "^5.10.0"
+  },
+  
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "prisma db seed"
+  },
+  
+  "frameworkConfigs": {
+    "next": {
+      "files": [
+        {
+          "source": "files/prisma-client.next.ts",
+          "destination": "src/lib/prisma.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "files": [
+        {
+          "source": "files/prisma-client.node.ts",
+          "destination": "src/lib/prisma.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "fastify": {
+      "files": [
+        {
+          "source": "files/prisma-client.node.ts",
+          "destination": "src/lib/prisma.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "files": [
+        {
+          "source": "files/prisma-client.node.ts",
+          "destination": "server/utils/prisma.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "sveltekit": {
+      "files": [
+        {
+          "source": "files/prisma-client.node.ts",
+          "destination": "src/lib/server/prisma.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "remix": {
+      "files": [
+        {
+          "source": "files/prisma-client.node.ts",
+          "destination": "app/lib/prisma.server.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "astro": {
+      "files": [
+        {
+          "source": "files/prisma-client.node.ts",
+          "destination": "src/lib/prisma.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "envVariables": [
+    {
+      "name": "DATABASE_URL",
+      "description": "Database connection URL",
+      "example": "postgresql://user:password@localhost:5432/mydb",
+      "required": true
+    }
+  ],
+  
+  "postInstall": {
+    "message": "Prisma ORM has been added to your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Set DATABASE_URL in your .env file",
+      "Edit prisma/schema.prisma to define your models",
+      "Run 'npm run db:push' to sync schema to database",
+      "Run 'npm run db:generate' to generate Prisma Client",
+      "Learn more: https://www.prisma.io/docs"
+    ]
+  },
+  
+  "validation": {
+    "preInstall": [
+      {
+        "type": "file-not-exists",
+        "target": "prisma/schema.prisma",
+        "message": "Prisma schema already exists"
+      }
+    ],
+    "postInstall": [
+      {
+        "type": "file-exists",
+        "target": "prisma/schema.prisma",
+        "message": "Prisma schema should exist"
+      }
+    ]
+  }
+}

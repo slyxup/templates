@@ -334,19 +334,19 @@ cd /home/ysr-hameed/Documents/Project/slyxup/features
 set -e
 
 FEATURE_DIR="$(pwd)/tailwind/v1.0.0"
-OUTPUT_FILE="tailwind/v1.0.0/tailwind-1.0.0.tar.gz"
+OUTPUT_FILE="tailwind/v1.0.0/tailwind.tar.gz"
 
 echo "📦 Packaging Tailwind CSS feature..."
 
 rm -f "$OUTPUT_FILE"
 
 cd "$FEATURE_DIR"
-tar -czf "../tailwind-1.0.0.tar.gz" \
+tar -czf "../tailwind.tar.gz" \
   --exclude='node_modules' \
   --exclude='.git' \
   .
 
-HASH=$(shasum -a 256 "../tailwind-1.0.0.tar.gz" | awk '{print $1}')
+HASH=$(shasum -a 256 "../tailwind.tar.gz" | awk '{print $1}')
 
 echo "✅ Package created"
 echo "SHA-256: $HASH"
@@ -365,7 +365,7 @@ Add to `registry/registry.json`:
       "aliases": ["tailwindcss", "tailwind-css"],
       "description": "Utility-first CSS framework",
       "version": "1.0.0",
-      "url": "https://cdn.slyxup.online/features/tailwind-1.0.0.tar.gz",
+      "url": "https://cdn.slyxup.online/features/tailwind.tar.gz",
       "integrity": "sha256-...",
       "category": "styling",
       "tags": ["css", "styling", "tailwind", "utility"],

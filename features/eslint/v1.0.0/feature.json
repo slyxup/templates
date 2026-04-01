@@ -1,0 +1,159 @@
+{
+  "name": "eslint",
+  "version": "1.0.0",
+  "description": "ESLint v9 with flat config for code linting",
+  "category": "tooling",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": ["biome"],
+  
+  "creates": [
+    "eslint.config.js"
+  ],
+  
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "globals": "^15.0.0"
+  },
+  
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "eslint-plugin-react": "^7.34.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5"
+      },
+      "files": [
+        {
+          "source": "files/eslint.config.react.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "devDependencies": {
+        "@eslint/eslintrc": "^3.0.0",
+        "@next/eslint-plugin-next": "^14.1.0",
+        "eslint-plugin-react": "^7.34.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "@typescript-eslint/eslint-plugin": "^7.0.0",
+        "@typescript-eslint/parser": "^7.0.0"
+      },
+      "files": [
+        {
+          "source": "files/eslint.config.next.js",
+          "destination": "eslint.config.mjs",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "devDependencies": {
+        "eslint-plugin-vue": "^9.22.0",
+        "@vue/eslint-config-typescript": "^13.0.0"
+      },
+      "files": [
+        {
+          "source": "files/eslint.config.vue.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "devDependencies": {
+        "eslint-plugin-vue": "^9.22.0",
+        "@nuxt/eslint-config": "^0.3.0"
+      },
+      "files": [
+        {
+          "source": "files/eslint.config.vue.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "svelte": {
+      "devDependencies": {
+        "eslint-plugin-svelte": "^2.35.0",
+        "svelte-eslint-parser": "^0.33.0",
+        "typescript-eslint": "^7.0.0"
+      },
+      "files": [
+        {
+          "source": "files/eslint.config.svelte.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "sveltekit": {
+      "devDependencies": {
+        "eslint-plugin-svelte": "^2.35.0",
+        "svelte-eslint-parser": "^0.33.0",
+        "typescript-eslint": "^7.0.0"
+      },
+      "files": [
+        {
+          "source": "files/eslint.config.svelte.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "files": [
+        {
+          "source": "files/eslint.config.node.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "fastify": {
+      "files": [
+        {
+          "source": "files/eslint.config.node.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "node": {
+      "files": [
+        {
+          "source": "files/eslint.config.node.js",
+          "destination": "eslint.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "angular": {
+      "devDependencies": {
+        "@angular-eslint/eslint-plugin": "^17.2.0",
+        "@angular-eslint/eslint-plugin-template": "^17.2.0",
+        "@angular-eslint/template-parser": "^17.2.0",
+        "@typescript-eslint/eslint-plugin": "^7.0.0",
+        "@typescript-eslint/parser": "^7.0.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "ESLint has been configured for your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npm run lint' to check for issues",
+      "Run 'npm run lint:fix' to auto-fix issues",
+      "Configure rules in eslint.config.js"
+    ]
+  }
+}

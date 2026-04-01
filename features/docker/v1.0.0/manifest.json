@@ -1,0 +1,25 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "Docker + Docker Compose setup for containerization",
+  "category": "devops",
+  "status": "stable",
+  "frameworks": [
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "instructions": "docker has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

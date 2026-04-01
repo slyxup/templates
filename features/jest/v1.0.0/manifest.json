@@ -1,0 +1,33 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "Jest v29 testing framework with TypeScript support",
+  "category": "testing",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "next",
+    "node",
+    "express",
+    "nestjs",
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "instructions": "jest has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "name": "zod",
+  "version": "1.0.0",
+  "description": "Zod v3 TypeScript-first schema validation",
+  "category": "validation",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": true,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/validations.ts",
+          "destination": "src/lib/validations.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schemas/user.schema.ts",
+          "destination": "src/schemas/user.schema.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "dependencies": {
+        "zod-form-data": "^2.0.2"
+      },
+      "files": [
+        {
+          "source": "files/validations.ts",
+          "destination": "src/lib/validations.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schemas/user.schema.ts",
+          "destination": "src/schemas/user.schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schemas/api.schema.ts",
+          "destination": "src/schemas/api.schema.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "dependencies": {
+        "zod-express-middleware": "^1.4.0"
+      },
+      "files": [
+        {
+          "source": "files/validations.ts",
+          "destination": "src/lib/validations.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/middleware/validate.ts",
+          "destination": "src/middleware/validate.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schemas/user.schema.ts",
+          "destination": "src/schemas/user.schema.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "fastify": {
+      "dependencies": {
+        "fastify-type-provider-zod": "^1.1.9"
+      },
+      "files": [
+        {
+          "source": "files/validations.ts",
+          "destination": "src/lib/validations.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schemas/user.schema.ts",
+          "destination": "src/schemas/user.schema.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "files": [
+        {
+          "source": "files/validations.ts",
+          "destination": "utils/validations.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schemas/user.schema.ts",
+          "destination": "schemas/user.schema.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "files": [
+        {
+          "source": "files/validations.ts",
+          "destination": "src/lib/validations.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schemas/user.schema.ts",
+          "destination": "src/schemas/user.schema.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Zod validation has been added to your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Import schemas: import { userSchema } from '@/schemas/user.schema'",
+      "Parse data: const user = userSchema.parse(data)",
+      "Safe parse: const result = userSchema.safeParse(data)",
+      "Create schemas in src/schemas/ directory",
+      "Learn more: https://zod.dev"
+    ]
+  }
+}

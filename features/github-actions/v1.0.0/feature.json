@@ -1,0 +1,149 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "GitHub Actions CI/CD workflow templates",
+  "category": "devops",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "creates": [
+    ".github/workflows/ci.yml"
+  ],
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/ci.react.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/preview.yml",
+          "destination": ".github/workflows/preview.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/ci.next.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/deploy.vercel.yml",
+          "destination": ".github/workflows/deploy.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "files": [
+        {
+          "source": "files/ci.vue.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "files": [
+        {
+          "source": "files/ci.nuxt.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "files": [
+        {
+          "source": "files/ci.node.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/deploy.docker.yml",
+          "destination": ".github/workflows/deploy.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "fastify": {
+      "files": [
+        {
+          "source": "files/ci.node.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/deploy.docker.yml",
+          "destination": ".github/workflows/deploy.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "nestjs": {
+      "files": [
+        {
+          "source": "files/ci.nestjs.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/deploy.docker.yml",
+          "destination": ".github/workflows/deploy.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "svelte": {
+      "files": [
+        {
+          "source": "files/ci.svelte.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "sveltekit": {
+      "files": [
+        {
+          "source": "files/ci.sveltekit.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        }
+      ]
+    },
+    "astro": {
+      "files": [
+        {
+          "source": "files/ci.astro.yml",
+          "destination": ".github/workflows/ci.yml",
+          "overwrite": false
+        },
+        {
+          "source": "files/deploy.astro.yml",
+          "destination": ".github/workflows/deploy.yml",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "GitHub Actions workflows have been created!",
+    "instructions": [
+      "Push to GitHub to trigger CI workflow",
+      "Workflows are in .github/workflows/ directory",
+      "CI runs on push and pull requests",
+      "Configure deployment secrets in GitHub repo settings",
+      "Learn more: https://docs.github.com/actions"
+    ]
+  }
+}

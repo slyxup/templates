@@ -1,0 +1,27 @@
+{
+  "name": "eslint",
+  "version": "1.0.0",
+  "description": "ESLint v9 with flat config for code linting",
+  "category": "tooling",
+  "status": "stable",
+  "frameworks": [
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "globals": "^15.0.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "instructions": "eslint has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

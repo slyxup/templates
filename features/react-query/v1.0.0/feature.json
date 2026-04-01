@@ -1,0 +1,116 @@
+{
+  "name": "react-query",
+  "version": "1.0.0",
+  "description": "TanStack Query v5 for data fetching and caching",
+  "category": "data",
+  
+  "frameworks": ["react", "next", "remix", "solid"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "@tanstack/react-query": "^5.28.0"
+  },
+  
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.28.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/query-client.ts",
+          "destination": "src/lib/query-client.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/QueryProvider.tsx",
+          "destination": "src/providers/QueryProvider.tsx",
+          "overwrite": false
+        },
+        {
+          "source": "files/hooks/useQuery.example.ts",
+          "destination": "src/hooks/useUsers.ts",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": "src/main.tsx",
+          "action": "wrap-provider",
+          "content": "QueryProvider",
+          "import": "import { QueryProvider } from './providers/QueryProvider'"
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/query-client.ts",
+          "destination": "src/lib/query-client.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/QueryProvider.next.tsx",
+          "destination": "src/providers/QueryProvider.tsx",
+          "overwrite": false
+        },
+        {
+          "source": "files/hooks/useQuery.example.ts",
+          "destination": "src/hooks/useUsers.ts",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": "src/app/layout.tsx",
+          "action": "wrap-provider",
+          "content": "QueryProvider",
+          "import": "import { QueryProvider } from '@/providers/QueryProvider'"
+        }
+      ]
+    },
+    "remix": {
+      "files": [
+        {
+          "source": "files/query-client.ts",
+          "destination": "app/lib/query-client.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/QueryProvider.tsx",
+          "destination": "app/providers/QueryProvider.tsx",
+          "overwrite": false
+        }
+      ]
+    },
+    "solid": {
+      "dependencies": {
+        "@tanstack/solid-query": "^5.28.0"
+      },
+      "devDependencies": {
+        "@tanstack/solid-query-devtools": "^5.28.0"
+      },
+      "files": [
+        {
+          "source": "files/query-client.solid.ts",
+          "destination": "src/lib/query-client.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "TanStack Query has been added to your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Wrap your app with QueryProvider",
+      "Use useQuery and useMutation hooks for data fetching",
+      "DevTools are included for debugging (dev mode only)",
+      "Learn more: https://tanstack.com/query"
+    ]
+  }
+}

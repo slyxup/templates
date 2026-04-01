@@ -1,0 +1,53 @@
+{
+  "name": "husky",
+  "version": "1.0.0",
+  "description": "Husky v9 Git hooks for pre-commit and commit-msg",
+  "category": "tooling",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "creates": [
+    ".husky/pre-commit",
+    ".husky/commit-msg"
+  ],
+  
+  "devDependencies": {
+    "husky": "^9.0.0"
+  },
+  
+  "scripts": {
+    "prepare": "husky"
+  },
+  
+  "frameworkConfigs": {
+    "default": {
+      "files": [
+        {
+          "source": "files/pre-commit",
+          "destination": ".husky/pre-commit",
+          "overwrite": false
+        },
+        {
+          "source": "files/commit-msg",
+          "destination": ".husky/commit-msg",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Husky Git hooks have been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npm run prepare' to initialize husky",
+      "Git hooks are in .husky/ directory",
+      "Edit .husky/pre-commit to customize pre-commit behavior",
+      "Consider adding 'lint-staged' feature for staged file linting",
+      "Learn more: https://typicode.github.io/husky"
+    ]
+  }
+}

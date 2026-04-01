@@ -1,0 +1,28 @@
+{
+  "name": "zustand",
+  "version": "1.0.0",
+  "description": "Zustand v4 lightweight state management",
+  "category": "state",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "next",
+    "remix",
+    "solid",
+    "preact"
+  ],
+  "dependencies": {
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "immer": "^10.0.3"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "zustand has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

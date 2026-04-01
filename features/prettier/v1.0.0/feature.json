@@ -1,0 +1,62 @@
+{
+  "name": "prettier",
+  "version": "1.0.0",
+  "description": "Prettier v3 code formatter for consistent styling",
+  "category": "tooling",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": ["biome"],
+  
+  "creates": [
+    ".prettierrc",
+    ".prettierignore"
+  ],
+  
+  "devDependencies": {
+    "prettier": "^3.2.0"
+  },
+  
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "prettier-plugin-tailwindcss": "^0.5.11"
+      }
+    },
+    "next": {
+      "devDependencies": {
+        "prettier-plugin-tailwindcss": "^0.5.11"
+      }
+    },
+    "vue": {
+      "devDependencies": {
+        "@prettier/plugin-pug": "^3.0.0"
+      }
+    },
+    "svelte": {
+      "devDependencies": {
+        "prettier-plugin-svelte": "^3.2.0"
+      }
+    },
+    "astro": {
+      "devDependencies": {
+        "prettier-plugin-astro": "^0.13.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "Prettier has been configured for your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npm run format' to format all files",
+      "Run 'npm run format:check' to check formatting",
+      "Configure rules in .prettierrc"
+    ]
+  }
+}

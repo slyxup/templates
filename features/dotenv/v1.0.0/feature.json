@@ -1,0 +1,144 @@
+{
+  "name": "dotenv",
+  "version": "1.0.0",
+  "description": "Environment variable management with .env files",
+  "category": "config",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "creates": [
+    ".env.example"
+  ],
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/.env.example.vite",
+          "destination": ".env.example",
+          "overwrite": false
+        },
+        {
+          "source": "files/env.vite.ts",
+          "destination": "src/lib/env.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/.env.example.next",
+          "destination": ".env.example",
+          "overwrite": false
+        },
+        {
+          "source": "files/env.next.ts",
+          "destination": "src/lib/env.ts",
+          "overwrite": false
+        }
+      ],
+      "dependencies": {
+        "@t3-oss/env-nextjs": "^0.9.2"
+      }
+    },
+    "vue": {
+      "files": [
+        {
+          "source": "files/.env.example.vite",
+          "destination": ".env.example",
+          "overwrite": false
+        },
+        {
+          "source": "files/env.vite.ts",
+          "destination": "src/lib/env.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "files": [
+        {
+          "source": "files/.env.example.nuxt",
+          "destination": ".env.example",
+          "overwrite": false
+        }
+      ]
+    },
+    "node": {
+      "dependencies": {
+        "dotenv": "^16.4.0"
+      },
+      "files": [
+        {
+          "source": "files/.env.example.node",
+          "destination": ".env.example",
+          "overwrite": false
+        },
+        {
+          "source": "files/env.node.ts",
+          "destination": "src/lib/env.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "dependencies": {
+        "dotenv": "^16.4.0"
+      },
+      "files": [
+        {
+          "source": "files/.env.example.express",
+          "destination": ".env.example",
+          "overwrite": false
+        },
+        {
+          "source": "files/env.node.ts",
+          "destination": "src/lib/env.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "fastify": {
+      "dependencies": {
+        "dotenv": "^16.4.0",
+        "@fastify/env": "^4.3.0"
+      },
+      "files": [
+        {
+          "source": "files/.env.example.fastify",
+          "destination": ".env.example",
+          "overwrite": false
+        },
+        {
+          "source": "files/env.fastify.ts",
+          "destination": "src/lib/env.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "modifications": [
+    {
+      "file": ".gitignore",
+      "action": "append",
+      "content": "\n# Environment variables\n.env\n.env.local\n.env.*.local\n!.env.example\n",
+      "marker": "# Environment variables"
+    }
+  ],
+  
+  "postInstall": {
+    "message": "Environment configuration has been set up!",
+    "instructions": [
+      "Copy .env.example to .env: cp .env.example .env",
+      "Fill in your environment variables in .env",
+      "Import env: import { env } from '@/lib/env'",
+      "Access variables: env.DATABASE_URL",
+      "Never commit .env files to version control"
+    ]
+  }
+}

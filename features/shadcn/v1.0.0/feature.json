@@ -1,0 +1,137 @@
+{
+  "name": "shadcn",
+  "version": "1.0.0",
+  "description": "shadcn/ui component library setup with Radix UI",
+  "category": "ui",
+  
+  "frameworks": ["react", "next", "remix", "astro"],
+  "requiresTypescript": true,
+  "conflictsWith": [],
+  "requiresFeatures": ["tailwind"],
+  
+  "creates": [
+    "components.json"
+  ],
+  
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.0",
+    "lucide-react": "^0.344.0",
+    "@radix-ui/react-slot": "^1.0.2"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/components.react.json",
+          "destination": "components.json",
+          "overwrite": false
+        },
+        {
+          "source": "files/utils.ts",
+          "destination": "src/lib/utils.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/button.tsx",
+          "destination": "src/components/ui/button.tsx",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": "tailwind.config.js",
+          "action": "merge",
+          "content": "{\"extendConfig\": {\"content\": [\"./src/components/**/*.{ts,tsx}\"]}}"
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/components.next.json",
+          "destination": "components.json",
+          "overwrite": false
+        },
+        {
+          "source": "files/utils.ts",
+          "destination": "src/lib/utils.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/button.tsx",
+          "destination": "src/components/ui/button.tsx",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": "tailwind.config.ts",
+          "action": "merge",
+          "content": "{\"extendConfig\": {\"content\": [\"./src/components/**/*.{ts,tsx}\"]}}"
+        }
+      ]
+    },
+    "remix": {
+      "files": [
+        {
+          "source": "files/components.remix.json",
+          "destination": "components.json",
+          "overwrite": false
+        },
+        {
+          "source": "files/utils.ts",
+          "destination": "app/lib/utils.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/button.tsx",
+          "destination": "app/components/ui/button.tsx",
+          "overwrite": false
+        }
+      ]
+    },
+    "astro": {
+      "files": [
+        {
+          "source": "files/components.astro.json",
+          "destination": "components.json",
+          "overwrite": false
+        },
+        {
+          "source": "files/utils.ts",
+          "destination": "src/lib/utils.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/button.tsx",
+          "destination": "src/components/ui/button.tsx",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "shadcn/ui has been initialized in your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Use 'npx shadcn@latest add <component>' to add more components",
+      "Import components from '@/components/ui/<component>'",
+      "Available components: button, card, dialog, dropdown, input, etc.",
+      "Learn more: https://ui.shadcn.com"
+    ]
+  },
+  
+  "validation": {
+    "preInstall": [
+      {
+        "type": "dependency",
+        "target": "tailwindcss",
+        "message": "Tailwind CSS is required. Run 'slyxup add tailwind' first."
+      }
+    ]
+  }
+}

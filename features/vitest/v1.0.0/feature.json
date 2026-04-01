@@ -1,0 +1,132 @@
+{
+  "name": "vitest",
+  "version": "1.0.0",
+  "description": "Vitest v2 fast unit testing framework",
+  "category": "testing",
+  
+  "frameworks": ["react", "vue", "svelte", "solid", "next", "nuxt", "astro", "*"],
+  "requiresTypescript": false,
+  "conflictsWith": ["jest"],
+  "requiresFeatures": [],
+  
+  "creates": [
+    "vitest.config.ts"
+  ],
+  
+  "devDependencies": {
+    "vitest": "^2.0.0",
+    "@vitest/coverage-v8": "^2.0.0"
+  },
+  
+  "scripts": {
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "@testing-library/react": "^14.2.0",
+        "@testing-library/jest-dom": "^6.4.0",
+        "jsdom": "^24.0.0",
+        "@vitejs/plugin-react": "^4.2.0"
+      },
+      "files": [
+        {
+          "source": "files/vitest.config.react.ts",
+          "destination": "vitest.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/vitest.setup.react.ts",
+          "destination": "src/test/setup.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/example.react.test.tsx",
+          "destination": "src/__tests__/example.test.tsx",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "devDependencies": {
+        "@testing-library/react": "^14.2.0",
+        "@testing-library/jest-dom": "^6.4.0",
+        "@vitejs/plugin-react": "^4.2.0",
+        "jsdom": "^24.0.0"
+      },
+      "files": [
+        {
+          "source": "files/vitest.config.next.ts",
+          "destination": "vitest.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/vitest.setup.react.ts",
+          "destination": "src/test/setup.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "devDependencies": {
+        "@testing-library/vue": "^8.0.2",
+        "@vue/test-utils": "^2.4.4",
+        "jsdom": "^24.0.0"
+      },
+      "files": [
+        {
+          "source": "files/vitest.config.vue.ts",
+          "destination": "vitest.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/example.vue.test.ts",
+          "destination": "src/__tests__/example.test.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "svelte": {
+      "devDependencies": {
+        "@testing-library/svelte": "^4.1.0",
+        "jsdom": "^24.0.0"
+      },
+      "files": [
+        {
+          "source": "files/vitest.config.svelte.ts",
+          "destination": "vitest.config.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "solid": {
+      "devDependencies": {
+        "@solidjs/testing-library": "^0.8.5",
+        "jsdom": "^24.0.0"
+      },
+      "files": [
+        {
+          "source": "files/vitest.config.solid.ts",
+          "destination": "vitest.config.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Vitest has been configured for your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npm run test' to start watching tests",
+      "Run 'npm run test:run' to run tests once",
+      "Run 'npm run test:coverage' for coverage report",
+      "Create test files with .test.ts or .spec.ts suffix",
+      "Learn more: https://vitest.dev"
+    ]
+  }
+}

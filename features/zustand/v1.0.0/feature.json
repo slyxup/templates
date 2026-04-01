@@ -1,0 +1,75 @@
+{
+  "name": "zustand",
+  "version": "1.0.0",
+  "description": "Zustand v4 lightweight state management",
+  "category": "state",
+  
+  "frameworks": ["react", "next", "remix", "solid", "preact"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "zustand": "^4.5.0"
+  },
+  
+  "devDependencies": {
+    "immer": "^10.0.3"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/store.ts",
+          "destination": "src/store/useStore.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/store.example.ts",
+          "destination": "src/store/useCounterStore.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/store.ts",
+          "destination": "src/store/useStore.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/store.example.ts",
+          "destination": "src/store/useCounterStore.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "remix": {
+      "files": [
+        {
+          "source": "files/store.ts",
+          "destination": "app/store/useStore.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/store.example.ts",
+          "destination": "app/store/useCounterStore.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Zustand has been added to your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Import store: import { useCounterStore } from '@/store/useCounterStore'",
+      "Access state: const count = useCounterStore((state) => state.count)",
+      "Create new stores in src/store/ directory",
+      "Learn more: https://zustand-demo.pmnd.rs"
+    ]
+  }
+}

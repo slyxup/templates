@@ -1,0 +1,25 @@
+{
+  "name": "prettier",
+  "version": "1.0.0",
+  "description": "Prettier v3 code formatter for consistent styling",
+  "category": "tooling",
+  "status": "stable",
+  "frameworks": [
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": {
+    "prettier": "^3.2.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "instructions": "prettier has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

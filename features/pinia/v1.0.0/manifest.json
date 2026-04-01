@@ -1,0 +1,23 @@
+{
+  "name": "pinia",
+  "version": "1.0.0",
+  "description": "pinia integration",
+  "category": "general",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "vue",
+    "next",
+    "nuxt"
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "pinia has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

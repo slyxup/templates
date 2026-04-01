@@ -1,0 +1,22 @@
+{
+  "name": "lint-staged",
+  "version": "1.0.0",
+  "description": "lint-staged v15 run linters on staged git files",
+  "category": "tooling",
+  "status": "stable",
+  "frameworks": [
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": {
+    "lint-staged": "^15.2.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "lint-staged has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

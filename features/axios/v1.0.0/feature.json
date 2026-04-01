@@ -1,0 +1,108 @@
+{
+  "name": "axios",
+  "version": "1.0.0",
+  "description": "Axios v1 HTTP client with interceptors setup",
+  "category": "network",
+  
+  "frameworks": ["*"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "files": [
+        {
+          "source": "files/axios.client.ts",
+          "destination": "src/lib/axios.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/api/index.ts",
+          "destination": "src/api/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/axios.client.ts",
+          "destination": "src/lib/axios.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/api/index.ts",
+          "destination": "src/api/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "files": [
+        {
+          "source": "files/axios.client.ts",
+          "destination": "src/lib/axios.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/api/index.ts",
+          "destination": "src/api/index.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/composables/useAxios.ts",
+          "destination": "src/composables/useAxios.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "files": [
+        {
+          "source": "files/axios.nuxt.ts",
+          "destination": "plugins/axios.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/composables/useApi.ts",
+          "destination": "composables/useApi.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "node": {
+      "files": [
+        {
+          "source": "files/axios.node.ts",
+          "destination": "src/lib/axios.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "files": [
+        {
+          "source": "files/axios.node.ts",
+          "destination": "src/lib/axios.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Axios HTTP client has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Import client: import { api } from '@/lib/axios'",
+      "Make requests: api.get('/users'), api.post('/users', data)",
+      "Configure interceptors in src/lib/axios.ts",
+      "Learn more: https://axios-http.com"
+    ]
+  }
+}

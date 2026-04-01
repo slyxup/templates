@@ -1,33 +1,156 @@
 {
-  "id": "tailwind",
-  "name": "Tailwind CSS",
+  "name": "tailwind",
   "version": "1.0.0",
-  "description": "Utility-first CSS framework",
+  "description": "Tailwind CSS v3.4 utility-first CSS framework",
   "category": "styling",
-  "frameworks": ["react", "vue", "nextjs"],
-  "dependencies": {
-    "tailwindcss": "^3.4.0",
+  
+  "frameworks": ["react", "next", "vue", "nuxt", "svelte", "sveltekit", "astro", "solid", "remix", "angular", "preact", "qwik", "*"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35"
   },
-  "files": [
-    {
-      "source": "files/tailwind.config.js",
-      "destination": "tailwind.config.js",
-      "overwrite": false
-    },
-    {
-      "source": "files/postcss.config.js",
-      "destination": "postcss.config.js",
-      "overwrite": false
-    }
+  
+  "creates": [
+    "tailwind.config.js",
+    "postcss.config.js"
   ],
-  "modifications": [
-    {
-      "file": "src/index.css",
-      "action": "prepend",
-      "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
-      "marker": "@tailwind"
+  
+  "frameworkConfigs": {
+    "react": {
+      "modifications": [
+        {
+          "file": "src/index.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
+    },
+    "next": {
+      "files": [
+        {
+          "source": "files/tailwind.config.ts",
+          "destination": "tailwind.config.ts",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": "src/app/globals.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
+    },
+    "vue": {
+      "modifications": [
+        {
+          "file": "src/assets/main.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
+    },
+    "nuxt": {
+      "devDependencies": {
+        "@nuxtjs/tailwindcss": "^6.11.0"
+      },
+      "modifications": [
+        {
+          "file": "nuxt.config.ts",
+          "action": "merge",
+          "content": "{\"addToArray\": {\"path\": \"modules\", \"value\": \"'@nuxtjs/tailwindcss'\"}}"
+        }
+      ]
+    },
+    "svelte": {
+      "modifications": [
+        {
+          "file": "src/app.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
+    },
+    "sveltekit": {
+      "modifications": [
+        {
+          "file": "src/app.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
+    },
+    "astro": {
+      "devDependencies": {
+        "@astrojs/tailwind": "^5.1.0"
+      },
+      "modifications": [
+        {
+          "file": "astro.config.mjs",
+          "action": "merge",
+          "content": "{\"addImport\": \"import tailwind from '@astrojs/tailwind';\", \"addToArray\": {\"path\": \"integrations\", \"value\": \"tailwind()\"}}"
+        }
+      ]
+    },
+    "solid": {
+      "modifications": [
+        {
+          "file": "src/index.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
+    },
+    "remix": {
+      "modifications": [
+        {
+          "file": "app/tailwind.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
+    },
+    "angular": {
+      "modifications": [
+        {
+          "file": "src/styles.css",
+          "action": "prepend",
+          "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+          "marker": "@tailwind"
+        }
+      ]
     }
-  ]
+  },
+  
+  "postInstall": {
+    "message": "Tailwind CSS has been added to your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Use utility classes like: className=\"flex items-center justify-center\"",
+      "Customize your theme in tailwind.config.js",
+      "Learn more: https://tailwindcss.com/docs"
+    ]
+  },
+  
+  "validation": {
+    "postInstall": [
+      {
+        "type": "file-exists",
+        "target": "tailwind.config.js",
+        "message": "Tailwind config should exist"
+      }
+    ]
+  }
 }

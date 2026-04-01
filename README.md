@@ -54,14 +54,14 @@ templates/
 3. Package the template:
    ```bash
    cd templates/my-framework/v1.0.0
-   tar -czf my-framework-1.0.0.tar.gz .
+   tar -czf my-framework.tar.gz .
    ```
 
 4. Generate SHA-256 hash:
    ```bash
-   sha256sum my-framework-1.0.0.tar.gz
+   sha256sum my-framework.tar.gz
    # or on macOS:
-   shasum -a 256 my-framework-1.0.0.tar.gz
+   shasum -a 256 my-framework.tar.gz
    ```
 
 5. Upload to CDN
@@ -77,8 +77,8 @@ Test template extraction:
 
 ```bash
 cd templates/react/v1.0.0
-tar -tzf react-1.0.0.tar.gz  # List contents
-tar -xzf react-1.0.0.tar.gz -C /tmp/test  # Test extraction
+tar -tzf react.tar.gz  # List contents
+tar -xzf react.tar.gz -C /tmp/test  # Test extraction
 ```
 
 ## 📄 License

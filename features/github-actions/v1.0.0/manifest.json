@@ -1,0 +1,20 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "GitHub Actions CI/CD workflow templates",
+  "category": "devops",
+  "status": "stable",
+  "frameworks": [
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "github-actions has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

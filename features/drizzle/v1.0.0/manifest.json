@@ -1,0 +1,39 @@
+{
+  "name": "drizzle",
+  "version": "1.0.0",
+  "description": "Drizzle ORM lightweight TypeScript ORM",
+  "category": "database",
+  "status": "stable",
+  "frameworks": [
+    "next",
+    "express",
+    "fastify",
+    "node",
+    "nuxt",
+    "remix",
+    "sveltekit",
+    "astro",
+    "hono",
+    "elysia",
+    "*"
+  ],
+  "dependencies": {
+    "drizzle-orm": "^0.30.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "instructions": "drizzle has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

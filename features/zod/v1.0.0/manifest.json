@@ -1,0 +1,22 @@
+{
+  "name": "zod",
+  "version": "1.0.0",
+  "description": "Zod v3 TypeScript-first schema validation",
+  "category": "validation",
+  "status": "stable",
+  "frameworks": [
+    "*"
+  ],
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  "devDependencies": [],
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "zod has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

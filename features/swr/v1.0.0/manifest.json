@@ -1,0 +1,23 @@
+{
+  "name": "swr",
+  "version": "1.0.0",
+  "description": "swr integration",
+  "category": "general",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "vue",
+    "next",
+    "nuxt"
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "swr has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

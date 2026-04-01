@@ -1,0 +1,36 @@
+{
+  "name": "tailwind",
+  "version": "1.0.0",
+  "description": "Tailwind CSS v3.4 utility-first CSS framework",
+  "category": "styling",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "next",
+    "vue",
+    "nuxt",
+    "svelte",
+    "sveltekit",
+    "astro",
+    "solid",
+    "remix",
+    "angular",
+    "preact",
+    "qwik",
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "tailwind has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "name": "drizzle",
+  "version": "1.0.0",
+  "description": "Drizzle ORM lightweight TypeScript ORM",
+  "category": "database",
+  
+  "frameworks": ["next", "express", "fastify", "node", "nuxt", "remix", "sveltekit", "astro", "hono", "elysia", "*"],
+  "requiresTypescript": true,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "creates": [
+    "drizzle.config.ts"
+  ],
+  
+  "devDependencies": {
+    "drizzle-kit": "^0.20.0"
+  },
+  
+  "dependencies": {
+    "drizzle-orm": "^0.30.0"
+  },
+  
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  
+  "frameworkConfigs": {
+    "next": {
+      "dependencies": {
+        "@vercel/postgres": "^0.7.0"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "src/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.next.ts",
+          "destination": "src/db/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "dependencies": {
+        "postgres": "^3.4.3"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "src/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.node.ts",
+          "destination": "src/db/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "fastify": {
+      "dependencies": {
+        "postgres": "^3.4.3"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "src/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.node.ts",
+          "destination": "src/db/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "nuxt": {
+      "dependencies": {
+        "postgres": "^3.4.3"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "server/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.node.ts",
+          "destination": "server/db/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "sveltekit": {
+      "dependencies": {
+        "postgres": "^3.4.3"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "src/lib/server/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.node.ts",
+          "destination": "src/lib/server/db/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "remix": {
+      "dependencies": {
+        "postgres": "^3.4.3"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "app/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.node.ts",
+          "destination": "app/db/index.server.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "hono": {
+      "dependencies": {
+        "postgres": "^3.4.3"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "src/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.node.ts",
+          "destination": "src/db/index.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "elysia": {
+      "dependencies": {
+        "postgres": "^3.4.3"
+      },
+      "files": [
+        {
+          "source": "files/drizzle.config.ts",
+          "destination": "drizzle.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/schema.ts",
+          "destination": "src/db/schema.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/db.bun.ts",
+          "destination": "src/db/index.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "envVariables": [
+    {
+      "name": "DATABASE_URL",
+      "description": "Database connection URL",
+      "example": "postgresql://user:password@localhost:5432/mydb",
+      "required": true
+    }
+  ],
+  
+  "postInstall": {
+    "message": "Drizzle ORM has been added to your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Set DATABASE_URL in your .env file",
+      "Edit src/db/schema.ts to define your tables",
+      "Run 'npm run db:push' to sync schema",
+      "Run 'npm run db:studio' to open Drizzle Studio",
+      "Learn more: https://orm.drizzle.team"
+    ]
+  },
+  
+  "validation": {
+    "postInstall": [
+      {
+        "type": "file-exists",
+        "target": "drizzle.config.ts",
+        "message": "Drizzle config should exist"
+      }
+    ]
+  }
+}

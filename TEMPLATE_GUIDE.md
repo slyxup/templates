@@ -132,7 +132,7 @@ cd ../..
 set -e
 
 TEMPLATE_DIR="$(pwd)/{template-name}/v1.0.0"
-OUTPUT_FILE="{template-name}/v1.0.0/{template-name}-1.0.0.tar.gz"
+OUTPUT_FILE="{template-name}/v1.0.0/{template-name}.tar.gz"
 
 echo "📦 Packaging {template-name} template..."
 
@@ -141,7 +141,7 @@ rm -f "$OUTPUT_FILE"
 
 # Create archive (exclude node_modules, .git, etc.)
 cd "$TEMPLATE_DIR"
-tar -czf "../{template-name}-1.0.0.tar.gz" \
+tar -czf "../{template-name}.tar.gz" \
   --exclude='node_modules' \
   --exclude='.git' \
   --exclude='dist' \
@@ -152,7 +152,7 @@ tar -czf "../{template-name}-1.0.0.tar.gz" \
 echo "✅ Package created: $OUTPUT_FILE"
 
 # Generate SHA-256 hash
-HASH=$(shasum -a 256 "../{template-name}-1.0.0.tar.gz" | awk '{print $1}')
+HASH=$(shasum -a 256 "../{template-name}.tar.gz" | awk '{print $1}')
 echo ""
 echo "SHA-256: $HASH"
 echo ""
@@ -162,7 +162,7 @@ echo "{
   \"name\": \"{Template Display Name}\",
   \"description\": \"Description here\",
   \"version\": \"1.0.0\",
-  \"url\": \"https://cdn.slyxup.online/templates/{template-name}-1.0.0.tar.gz\",
+  \"url\": \"https://cdn.slyxup.online/templates/{template-name}.tar.gz\",
   \"integrity\": \"sha256-$HASH\",
   \"tags\": [\"tag1\", \"tag2\"],
   \"category\": \"frontend\"
@@ -182,7 +182,7 @@ Add to `registry/registry.json`:
       "aliases": ["react-app", "vite-react"],
       "description": "Modern React 18 with Vite and TypeScript",
       "version": "1.0.0",
-      "url": "https://cdn.slyxup.online/templates/react-1.0.0.tar.gz",
+      "url": "https://cdn.slyxup.online/templates/react.tar.gz",
       "integrity": "sha256-...",
       "tags": ["react", "vite", "typescript", "frontend"],
       "category": "frontend"

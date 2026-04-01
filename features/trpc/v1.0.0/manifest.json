@@ -1,0 +1,23 @@
+{
+  "name": "trpc",
+  "version": "1.0.0",
+  "description": "trpc integration",
+  "category": "general",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "vue",
+    "next",
+    "nuxt"
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "trpc has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

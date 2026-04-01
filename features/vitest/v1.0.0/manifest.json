@@ -1,0 +1,35 @@
+{
+  "name": "vitest",
+  "version": "1.0.0",
+  "description": "Vitest v2 fast unit testing framework",
+  "category": "testing",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "vue",
+    "svelte",
+    "solid",
+    "next",
+    "nuxt",
+    "astro",
+    "*"
+  ],
+  "dependencies": [],
+  "devDependencies": {
+    "vitest": "^2.0.0",
+    "@vitest/coverage-v8": "^2.0.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
+  },
+  "instructions": "vitest has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}

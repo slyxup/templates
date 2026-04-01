@@ -1,0 +1,27 @@
+{
+  "name": "react-query",
+  "version": "1.0.0",
+  "description": "TanStack Query v5 for data fetching and caching",
+  "category": "data",
+  "status": "stable",
+  "frameworks": [
+    "react",
+    "next",
+    "remix",
+    "solid"
+  ],
+  "dependencies": {
+    "@tanstack/react-query": "^5.28.0"
+  },
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.28.0"
+  },
+  "peerDependencies": [],
+  "conflicts": [],
+  "files": [],
+  "scripts": {},
+  "instructions": "react-query has been added to your project!",
+  "nextSteps": [
+    "Run 'npm install' to install dependencies"
+  ]
+}
