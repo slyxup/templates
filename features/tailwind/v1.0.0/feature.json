@@ -1,0 +1,33 @@
+{
+  "id": "tailwind",
+  "name": "Tailwind CSS",
+  "version": "1.0.0",
+  "description": "Utility-first CSS framework",
+  "category": "styling",
+  "frameworks": ["react", "vue", "nextjs"],
+  "dependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35"
+  },
+  "files": [
+    {
+      "source": "files/tailwind.config.js",
+      "destination": "tailwind.config.js",
+      "overwrite": false
+    },
+    {
+      "source": "files/postcss.config.js",
+      "destination": "postcss.config.js",
+      "overwrite": false
+    }
+  ],
+  "modifications": [
+    {
+      "file": "src/index.css",
+      "action": "prepend",
+      "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n",
+      "marker": "@tailwind"
+    }
+  ]
+}
