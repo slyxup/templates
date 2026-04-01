@@ -1,0 +1,19 @@
+{
+  "name": "@slyxup/templates",
+  "version": "1.0.0",
+  "description": "Official SlyxUp project templates",
+  "private": true,
+  "scripts": {
+    "package:react": "./scripts/package-react.sh",
+    "package:all": "./scripts/package-all.sh"
+  },
+  "keywords": [
+    "slyxup",
+    "templates",
+    "react",
+    "vue",
+    "nextjs"
+  ],
+  "author": "SlyxUp Team",
+  "license": "MIT"
+}
