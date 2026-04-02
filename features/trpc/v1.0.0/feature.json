@@ -1,0 +1,83 @@
+{
+  "name": "trpc",
+  "version": "1.0.0",
+  "description": "tRPC v11 end-to-end typesafe APIs",
+  "category": "api",
+  
+  "frameworks": ["next", "express", "fastify", "node"],
+  "requiresTypescript": true,
+  "conflictsWith": [],
+  "requiresFeatures": ["zod"],
+  
+  "dependencies": {
+    "@trpc/server": "^11.0.0-rc.0",
+    "zod": "^3.22.0"
+  },
+  
+  "frameworkConfigs": {
+    "next": {
+      "dependencies": {
+        "@trpc/server": "^11.0.0-rc.0",
+        "@trpc/client": "^11.0.0-rc.0",
+        "@trpc/react-query": "^11.0.0-rc.0",
+        "@tanstack/react-query": "^5.28.0",
+        "zod": "^3.22.0"
+      },
+      "files": [
+        {
+          "source": "files/server/trpc.ts",
+          "destination": "src/server/trpc.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/server/routers/index.ts",
+          "destination": "src/server/routers/index.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/server/routers/_app.ts",
+          "destination": "src/server/routers/_app.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/app/api/trpc/[trpc]/route.ts",
+          "destination": "src/app/api/trpc/[trpc]/route.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/lib/trpc.ts",
+          "destination": "src/lib/trpc.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "dependencies": {
+        "@trpc/server": "^11.0.0-rc.0",
+        "zod": "^3.22.0"
+      },
+      "files": [
+        {
+          "source": "files/server/trpc.ts",
+          "destination": "src/server/trpc.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/server/routers/index.ts",
+          "destination": "src/server/routers/index.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "tRPC has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Define routers in src/server/routers/",
+      "Use client: import { trpc } from '@/lib/trpc'",
+      "Learn more: https://trpc.io"
+    ]
+  }
+}

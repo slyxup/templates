@@ -1,0 +1,34 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "TypeScript v5 for type safety and better developer experience",
+  "frameworks": ["*"],
+  "frameworkVersion": "TypeScript 5",
+  "status": "stable",
+  "category": "language",
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.0"
+  },
+  "files": [
+    {
+      "path": "tsconfig.json",
+      "content": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"bundler\",\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true,\n    \"forceConsistentCasingInFileNames\": true,\n    \"declaration\": true,\n    \"declarationMap\": true,\n    \"sourceMap\": true,\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\"\n  },\n  \"include\": [\"src/**/*\"],\n  \"exclude\": [\"node_modules\", \"dist\"]\n}"
+    }
+  ],
+  "modifications": [
+    {
+      "file": "package.json",
+      "type": "merge",
+      "content": {
+        "scripts": {
+          "build": "tsc",
+          "type-check": "tsc --noEmit"
+        }
+      }
+    }
+  ],
+  "instructions": "TypeScript has been added! Run `npm install` to install dependencies.",
+  "aliases": ["ts", "type-check", "types"],
+  "tags": ["typescript", "types", "type-safety", "language"]
+}

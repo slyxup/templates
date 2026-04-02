@@ -1,0 +1,67 @@
+{
+  "name": "swr",
+  "version": "1.0.0",
+  "description": "SWR v2 React Hooks for data fetching",
+  "category": "data",
+  
+  "frameworks": ["react", "next", "svelte"],
+  "requiresTypescript": false,
+  "conflictsWith": ["react-query"],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "swr": "^2.2.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "dependencies": {
+        "swr": "^2.2.0"
+      },
+      "files": [
+        {
+          "source": "files/swr.ts",
+          "destination": "src/lib/swr.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/hooks/useUser.ts",
+          "destination": "src/hooks/useUser.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "dependencies": {
+        "swr": "^2.2.0"
+      },
+      "files": [
+        {
+          "source": "files/swr.ts",
+          "destination": "src/lib/swr.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/hooks/useUser.ts",
+          "destination": "src/hooks/useUser.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "svelte": {
+      "dependencies": {
+        "@tanstack/react-query": "^5.0.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "SWR data fetching has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Use useSWR hook: import useSWR from 'swr'",
+      "Example: const { data, error } = useSWR('/api/user')",
+      "Learn more: https://swr.vercel.app"
+    ]
+  }
+}

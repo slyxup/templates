@@ -1,0 +1,68 @@
+{
+  "name": "sentry",
+  "version": "1.0.0",
+  "description": "Sentry error tracking and monitoring",
+  "category": "monitoring",
+  
+  "frameworks": ["react", "next", "vue", "express", "fastify", "node"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "@sentry/browser": "^7.100.0",
+    "@sentry/react": "^7.100.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "dependencies": {
+        "@sentry/browser": "^7.100.0",
+        "@sentry/react": "^7.100.0"
+      },
+      "files": [
+        {
+          "source": "files/sentry.client.ts",
+          "destination": "src/lib/sentry.client.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "dependencies": {
+        "@sentry/nextjs": "^7.100.0"
+      }
+    },
+    "express": {
+      "dependencies": {
+        "@sentry/node": "^7.100.0"
+      },
+      "files": [
+        {
+          "source": "files/sentry.server.ts",
+          "destination": "src/lib/sentry.server.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "envVariables": [
+    {
+      "name": "SENTRY_DSN",
+      "description": "Sentry Data Source Name",
+      "required": true,
+      "example": "https://xxx@sentry.io/xxx"
+    }
+  ],
+  
+  "postInstall": {
+    "message": "Sentry error tracking has been configured!",
+    "instructions": [
+      "Set SENTRY_DSN environment variable",
+      "Configure your Sentry project at sentry.io",
+      "Errors will be automatically captured",
+      "Learn more: https://docs.sentry.io"
+    ]
+  }
+}

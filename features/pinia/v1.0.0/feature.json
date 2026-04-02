@@ -1,0 +1,60 @@
+{
+  "name": "pinia",
+  "version": "1.0.0",
+  "description": "Pinia v2 Vue state management",
+  "category": "state",
+  
+  "frameworks": ["vue", "nuxt"],
+  "requiresTypescript": false,
+  "conflictsWith": ["zustand", "redux"],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "pinia": "^2.1.0"
+  },
+  
+  "frameworkConfigs": {
+    "vue": {
+      "dependencies": {
+        "pinia": "^2.1.0"
+      },
+      "files": [
+        {
+          "source": "files/stores/counter.ts",
+          "destination": "src/stores/counter.ts",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": "src/main.ts",
+          "action": "insert-import",
+          "content": "import { createPinia } from 'pinia'",
+          "position": "after-imports"
+        },
+        {
+          "file": "src/main.ts",
+          "action": "insert-code",
+          "content": "app.use(createPinia())",
+          "position": "after-imports"
+        }
+      ]
+    },
+    "nuxt": {
+      "dependencies": {
+        "@pinia/nuxt": "^0.5.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "Pinia state management has been added!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Create stores in src/stores/ directory",
+      "Use stores: import { useCounterStore } from '@/stores/counter'",
+      "Access state: const store = useCounterStore()",
+      "Learn more: https://pinia.vuejs.org"
+    ]
+  }
+}

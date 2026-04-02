@@ -46,6 +46,14 @@ for (const feature of features) {
   const tarballName = `${feature}.tar.gz`;
   const tarballPath = path.join(PACKAGED_DIR, tarballName);
 
+  // Remove existing tarballs for this feature (both versioned and non-versioned)
+  const existingFiles = fs.readdirSync(PACKAGED_DIR).filter(f => f.startsWith(feature));
+  for (const file of existingFiles) {
+    const filePath = path.join(PACKAGED_DIR, file);
+    fs.unlinkSync(filePath);
+    console.log(`  Removed old: ${file}`);
+  }
+
   try {
     // Create tarball
     execSync(`tar -czf "${tarballPath}" -C "${sourcePath}" .`, {

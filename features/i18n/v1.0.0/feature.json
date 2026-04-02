@@ -1,0 +1,74 @@
+{
+  "name": "i18n",
+  "version": "1.0.0",
+  "description": "i18next internationalization setup",
+  "category": "i18n",
+  
+  "frameworks": ["react", "next", "vue", "nuxt"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "i18next": "^23.10.0",
+    "react-i18next": "^14.1.0",
+    "i18next-browser-languagedetector": "^7.2.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "dependencies": {
+        "i18next": "^23.10.0",
+        "react-i18next": "^14.1.0",
+        "i18next-browser-languagedetector": "^7.2.0"
+      },
+      "files": [
+        {
+          "source": "files/i18n.ts",
+          "destination": "src/lib/i18n.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/i18nnext.config.js",
+          "destination": "src/i18next.config.js",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "dependencies": {
+        "i18next": "^23.10.0",
+        "react-i18next": "^14.1.0",
+        "i18next-browser-languagedetector": "^7.2.0",
+        "i18next-http-backend": "^2.4.0"
+      },
+      "files": [
+        {
+          "source": "files/i18n.ts",
+          "destination": "src/lib/i18n.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "dependencies": {
+        "vue-i18n": "^9.10.0"
+      }
+    },
+    "nuxt": {
+      "dependencies": {
+        "@nuxtjs/i18n": "^8.3.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "i18n has been added to your project!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Configure translations in src/locales/",
+      "Use i18n t() function: import { useTranslation } from 'react-i18next'",
+      "Learn more: https://www.i18next.com"
+    ]
+  }
+}

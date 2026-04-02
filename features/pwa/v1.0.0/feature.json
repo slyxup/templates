@@ -1,0 +1,48 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "Progressive Web App with service workers",
+  "category": "pwa",
+  
+  "frameworks": ["react", "next", "vue", "svelte"],
+  "requiresTypescript": false,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "devDependencies": {
+    "vite-plugin-pwa": "^0.19.0",
+    "workbox-window": "^7.0.0"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "vite-plugin-pwa": "^0.19.0"
+      },
+      "modifications": [
+        {
+          "file": "vite.config.ts",
+          "action": "merge",
+          "jsonPath": "plugins",
+          "content": "[{\"VitePWA\": {\"registerType\": \"autoUpdate\", \"includeAssets\": [\"vite.svg\"], \"manifest\": {\"name\": \"My PWA App\", \"short_name\": \"PWA App\", \"description\": \"My Progressive Web App\", \"theme_color\": \"#ffffff\", \"icons\": []}}}}]"
+        }
+      ]
+    },
+    "next": {
+      "devDependencies": {
+        "next-pwa": "^5.6.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "PWA support has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Configure your PWA manifest in vite.config.ts",
+      "Add app icons to public/ directory",
+      "Test with Lighthouse audit",
+      "Learn more: https://vite-plugin-pwa.wxgalaxy.win"
+    ]
+  }
+}

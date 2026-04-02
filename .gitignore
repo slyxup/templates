@@ -1,4 +1,33 @@
+# Packaged tarballs (generated - regenerate with npm run build)
+packaged/
 *.tar.gz
+
+# Dependencies
 node_modules/
+
+# Wrangler cache
+.wrangler/
+
+# Build output
 dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+
+# Temp
+.tmp/
+.cache/

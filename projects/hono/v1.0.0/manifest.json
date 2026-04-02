@@ -1,0 +1,32 @@
+{
+  "name": "hono",
+  "version": "1.0.0",
+  "description": "Hono v3 Edge Runtime server",
+  "framework": "hono",
+  "frameworkVersion": "Hono 3",
+  "status": "stable",
+  "category": "backend",
+  "tags": ["hono", "edge", "api", "backend", "cloudflare", "ultrafast"],
+  "aliases": ["hono-api"],
+  
+  "structure": {
+    "sourceDir": "src"
+  },
+  
+  "dependencies": {
+    "hono": "^4.0.0",
+    "@hono/node-server": "^1.8.0"
+  },
+  
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.0",
+    "tsx": "^4.7.0"
+  },
+  
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  }
+}

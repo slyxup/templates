@@ -1,0 +1,74 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "Cypress v13 end-to-end testing",
+  "category": "testing",
+  
+  "frameworks": ["react", "next", "vue", "nuxt"],
+  "requiresTypescript": false,
+  "conflictsWith": ["playwright"],
+  "requiresFeatures": [],
+  
+  "devDependencies": {
+    "cypress": "^13.6.0"
+  },
+  
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:e2e": "cypress run"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "@cypress/react18": "^2.0.0"
+      },
+      "files": [
+        {
+          "source": "files/cypress.config.ts",
+          "destination": "cypress.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/cypress/e2e/app.cy.ts",
+          "destination": "cypress/e2e/app.cy.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/cypress/support/commands.ts",
+          "destination": "cypress/support/commands.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "devDependencies": {
+        "@cypress/react": "^2.0.0"
+      },
+      "files": [
+        {
+          "source": "files/cypress.config.ts",
+          "destination": "cypress.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/cypress/e2e/app.cy.ts",
+          "destination": "cypress/e2e/app.cy.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Cypress e2e testing has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npm run cypress:open' to open Cypress UI",
+      "Run 'npm run cypress:run' to run tests headlessly",
+      "Add tests in cypress/e2e/ directory",
+      "Learn more: https://docs.cypress.io"
+    ]
+  }
+}

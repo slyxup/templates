@@ -2,84 +2,55 @@
 
 Official templates for SlyxUp CLI.
 
-## 📦 Available Templates
+## 📦 Folder Structure
+
+```
+templates/
+├── projects/           # Project templates (starter projects)
+│   └── react/
+│       └── v1.0.0/
+│           ├── manifest.json
+│           ├── package.json
+│           └── ...
+├── features/           # Feature templates (add-on packages)
+│   ├── tailwind/
+│   │   └── v1.0.0/
+│   │       ├── manifest.json     # Registry metadata
+│   │       ├── feature.json      # Feature installation config
+│   │       └── files/            # Files to copy/modify
+│   └── ...
+├── packaged/           # Packaged tar.gz archives
+│   ├── react-1.0.0.tar.gz
+│   └── tailwind-1.0.0.tar.gz
+└── scripts/           # Build and packaging scripts
+```
+
+## 📦 Available Projects
 
 ### React
 - **Version**: 1.0.0
 - **Stack**: React 18 + Vite + TypeScript
-- **Location**: `templates/react/v1.0.0/`
+- **Location**: `projects/react/v1.0.0/`
 - **Status**: ✅ Ready
 
-### Vue
-- **Version**: 1.0.0
-- **Stack**: Vue 3 + Vite + TypeScript
-- **Location**: `templates/vue/v1.0.0/`
+### Vue, Next.js, Express, Discord
 - **Status**: ⏳ Coming soon
 
-### Next.js
-- **Version**: 1.0.0
-- **Stack**: Next.js 14 + TypeScript
-- **Location**: `templates/nextjs/v1.0.0/`
-- **Status**: ⏳ Coming soon
+## 🧩 Available Features
 
-## 🏗️ Template Structure
-
-Each template follows this structure:
-
-```
-templates/
-├── react/
-│   └── v1.0.0/
-│       ├── package.json
-│       ├── tsconfig.json
-│       ├── vite.config.ts
-│       ├── index.html
-│       ├── public/
-│       └── src/
-│           ├── main.tsx
-│           ├── App.tsx
-│           ├── App.css
-│           └── index.css
-```
-
-## 📝 Creating a New Template
-
-1. Create version directory:
-   ```bash
-   mkdir -p templates/my-framework/v1.0.0
-   ```
-
-2. Add all template files
-
-3. Package the template:
-   ```bash
-   cd templates/my-framework/v1.0.0
-   tar -czf my-framework.tar.gz .
-   ```
-
-4. Generate SHA-256 hash:
-   ```bash
-   sha256sum my-framework.tar.gz
-   # or on macOS:
-   shasum -a 256 my-framework.tar.gz
-   ```
-
-5. Upload to CDN
-
-6. Update registry.json with:
-   - Download URL
-   - SHA-256 hash
-   - File size
-
-## 🧪 Testing Templates
-
-Test template extraction:
-
-```bash
-cd templates/react/v1.0.0
-tar -tzf react.tar.gz  # List contents
-tar -xzf react.tar.gz -C /tmp/test  # Test extraction
-```
+| Feature | Version | Category | Frameworks |
+|---------|---------|----------|------------|
+| tailwind | 1.0.0 | styling | react, vue, next, nuxt, svelte... |
+| eslint | 1.0.0 | tooling | * (all) |
+| prettier | 1.0.0 | tooling | * (all) |
+| zod | 1.0.0 | validation | * (all) |
+| prisma | 1.0.0 | database | next, express, fastify... |
+| drizzle | 1.0.0 | database | next, express, fastify... |
+| zustand | 1.0.0 | state | react, next |
+| react-query | 1.0.0 | data | react, next |
+| trpc | 1.0.0 | api | next, express, fastify |
+| docker | 1.0.0 | devops | * (all) |
+| ... | | | |
 
 ## 📄 License
 

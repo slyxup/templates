@@ -1,0 +1,67 @@
+{
+  "name": "next-auth",
+  "version": "1.0.0",
+  "description": "NextAuth.js v5 authentication for Next.js",
+  "category": "auth",
+  
+  "frameworks": ["next"],
+  "requiresTypescript": true,
+  "conflictsWith": ["lucia"],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "next-auth": "^5.0.0-beta.15"
+  },
+  
+  "frameworkConfigs": {
+    "next": {
+      "files": [
+        {
+          "source": "files/auth.ts",
+          "destination": "auth.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/api/auth/[...nextauth]/route.ts",
+          "destination": "src/app/api/auth/[...nextauth]/route.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/providers/github.ts",
+          "destination": "auth/providers/github.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "envVariables": [
+    {
+      "name": "AUTH_SECRET",
+      "description": "Secret key for NextAuth.js",
+      "required": true,
+      "example": "generate with: openssl rand -base64 32"
+    },
+    {
+      "name": "AUTH_GITHUB_ID",
+      "description": "GitHub OAuth App Client ID",
+      "required": false
+    },
+    {
+      "name": "AUTH_GITHUB_SECRET",
+      "description": "GitHub OAuth App Client Secret",
+      "required": false
+    }
+  ],
+  
+  "postInstall": {
+    "message": "NextAuth.js has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Set AUTH_SECRET environment variable",
+      "Configure your OAuth providers in auth.ts",
+      "Wrap your app with SessionProvider",
+      "Learn more: https://next-auth.js.org"
+    ]
+  }
+}

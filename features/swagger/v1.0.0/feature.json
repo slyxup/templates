@@ -1,0 +1,67 @@
+{
+  "name": "swagger",
+  "version": "1.0.0",
+  "description": "Swagger/OpenAPI documentation setup",
+  "category": "api",
+  
+  "frameworks": ["express", "fastify", "node", "next"],
+  "requiresTypescript": true,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "swagger-jsdoc": "^6.2.0",
+    "swagger-ui-express": "^5.0.0"
+  },
+  
+  "frameworkConfigs": {
+    "express": {
+      "dependencies": {
+        "swagger-jsdoc": "^6.2.0",
+        "swagger-ui-express": "^5.0.0"
+      },
+      "files": [
+        {
+          "source": "files/swagger.ts",
+          "destination": "src/lib/swagger.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/routes/docs.ts",
+          "destination": "src/routes/docs.ts",
+          "overwrite": false
+        }
+      ],
+      "modifications": [
+        {
+          "file": "src/app.ts",
+          "action": "insert-import",
+          "content": "import { specs, swaggerUi } from './lib/swagger'",
+          "position": "after-imports"
+        },
+        {
+          "file": "src/app.ts",
+          "action": "insert-code",
+          "content": "app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))",
+          "position": "before-routes"
+        }
+      ]
+    },
+    "fastify": {
+      "dependencies": {
+        "@fastify/swagger": "^8.14.0",
+        "@fastify/swagger-ui": "^3.0.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "Swagger API documentation has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Access docs at /api-docs",
+      "Add JSDoc comments to your routes",
+      "Learn more: https://swagger.io"
+    ]
+  }
+}

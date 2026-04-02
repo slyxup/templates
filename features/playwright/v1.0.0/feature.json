@@ -1,0 +1,69 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "Playwright v1 end-to-end testing",
+  "category": "testing",
+  
+  "frameworks": ["react", "next", "vue", "nuxt", "svelte", "sveltekit"],
+  "requiresTypescript": false,
+  "conflictsWith": ["cypress"],
+  "requiresFeatures": [],
+  
+  "devDependencies": {
+    "@playwright/test": "^1.41.0"
+  },
+  
+  "scripts": {
+    "test:e2e": "playwright test",
+    "playwright:install": "playwright install",
+    "playwright:install-deps": "playwright install-deps"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "@playwright/test": "^1.41.0"
+      },
+      "files": [
+        {
+          "source": "files/playwright.config.ts",
+          "destination": "playwright.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/tests/app.spec.ts",
+          "destination": "tests/app.spec.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "next": {
+      "devDependencies": {
+        "@playwright/test": "^1.41.0"
+      },
+      "files": [
+        {
+          "source": "files/playwright.config.ts",
+          "destination": "playwright.config.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/tests/app.spec.ts",
+          "destination": "tests/app.spec.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Playwright e2e testing has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npx playwright install' to install browsers",
+      "Run 'npm run test:e2e' to run tests",
+      "Add tests in tests/ directory",
+      "Learn more: https://playwright.dev"
+    ]
+  }
+}

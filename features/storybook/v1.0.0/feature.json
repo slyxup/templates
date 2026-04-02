@@ -1,0 +1,70 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "description": "Storybook v8 UI component documentation",
+  "category": "ui",
+  
+  "frameworks": ["react", "vue", "next", "svelte"],
+  "requiresTypescript": true,
+  "conflictsWith": [],
+  "requiresFeatures": [],
+  
+  "devDependencies": {
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "storybook": "^8.0.0"
+  },
+  
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  
+  "frameworkConfigs": {
+    "react": {
+      "devDependencies": {
+        "@storybook/react": "^8.0.0",
+        "@storybook/react-vite": "^8.0.0",
+        "@storybook/addon-essentials": "^8.0.0",
+        "@storybook/blocks": "^8.0.0",
+        "storybook": "^8.0.0",
+        "@types/react": "^18.2.0"
+      },
+      "files": [
+        {
+          "source": "files/.storybook/main.ts",
+          "destination": ".storybook/main.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/.storybook/preview.ts",
+          "destination": ".storybook/preview.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/stories/Button.stories.tsx",
+          "destination": "src/stories/Button.stories.tsx",
+          "overwrite": false
+        }
+      ]
+    },
+    "vue": {
+      "devDependencies": {
+        "@storybook/vue3": "^8.0.0",
+        "@storybook/vue3-vite": "^8.0.0"
+      }
+    }
+  },
+  
+  "postInstall": {
+    "message": "Storybook has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Run 'npm run storybook' to start Storybook",
+      "Add components to src/stories/ directory",
+      "Learn more: https://storybook.js.org"
+    ]
+  }
+}

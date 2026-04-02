@@ -1,0 +1,59 @@
+{
+  "name": "lucia",
+  "version": "1.0.0",
+  "description": "Lucia v3 authentication library",
+  "category": "auth",
+  
+  "frameworks": ["next", "express", "fastify", "nuxt", "sveltekit"],
+  "requiresTypescript": true,
+  "conflictsWith": ["next-auth"],
+  "requiresFeatures": [],
+  
+  "dependencies": {
+    "lucia": "^3.0.0",
+    "@lucia-auth/adapter-drizzle": "^1.0.0"
+  },
+  
+  "frameworkConfigs": {
+    "next": {
+      "dependencies": {
+        "lucia": "^3.0.0",
+        "@lucia-auth/adapter-drizzle": "^1.0.0"
+      },
+      "files": [
+        {
+          "source": "files/auth.ts",
+          "destination": "src/lib/auth.ts",
+          "overwrite": false
+        },
+        {
+          "source": "files/middleware.ts",
+          "destination": "src/middleware.ts",
+          "overwrite": false
+        }
+      ]
+    },
+    "express": {
+      "dependencies": {
+        "lucia": "^3.0.0"
+      },
+      "files": [
+        {
+          "source": "files/auth.ts",
+          "destination": "src/lib/auth.ts",
+          "overwrite": false
+        }
+      ]
+    }
+  },
+  
+  "postInstall": {
+    "message": "Lucia authentication has been configured!",
+    "instructions": [
+      "Run 'npm install' to install dependencies",
+      "Configure your database adapter in auth.ts",
+      "Set up session handling in middleware",
+      "Learn more: https://lucia-auth.com"
+    ]
+  }
+}
